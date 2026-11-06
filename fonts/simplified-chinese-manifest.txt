@@ -2,6 +2,11 @@
 #   family | style | file (relative to the repo root) | scripts (ISO 15924, comma-separated) | licence | licence file | sha256 | source
 # Apps read this file separately from fonts/manifest.txt, and native builds only. It is not part
 # of craft-fonts' default FONTS table or embed payload and must never be added to a wasm allowlist.
-# DeckCraft classifies Han characters as Hani, so the row carries Hani,Hans.
-# Pinned release: v1.530, commit b712c83d98acf977bacfb7fb010207802808bda9.
-LXGW WenKai Lite | Regular | fonts/lxgw-wenkai-lite/LXGWWenKaiLite-Regular.ttf | Hani,Hans | OFL-1.1 | fonts/lxgw-wenkai-lite/OFL.txt | f799a538a3355877e597a0ae04050e897932c9ae7689eb9227c2953c5dd549ea | https://github.com/lxgw/LxgwWenKai-Lite/releases/tag/v1.530
+#
+# Fork policy: this fork builds PdfCraft's Simplified Chinese fallback from the Noto regional
+# subsets (SubsetOTF/SC) instead of LXGW WenKai Lite, so the LXGW row and its face are gone here.
+# The subsets stay well under the 16 MiB native cap (8.3 MB / 11.6 MB); both are OFL-1.1, so a
+# redistribution must carry their OFL.txt. Rows keep the upstream "Hans" script tag that native
+# builds require, plus Latn for the Latin letters the subsets also draw.
+Noto Sans SC | Regular | fonts/noto-sans-sc/NotoSansSC-Regular.otf | Hans,Latn | OFL-1.1 | fonts/noto-sans-sc/OFL.txt | faa6c9df652116dde789d351359f3d7e5d2285a2b2a1f04a2d7244df706d5ea9 | https://github.com/notofonts/noto-cjk/tree/main/Sans/SubsetOTF/SC
+Noto Serif SC | Regular | fonts/noto-serif-sc/NotoSerifSC-Regular.otf | Hans,Latn | OFL-1.1 | fonts/noto-serif-sc/OFL.txt | e8f396decc1f0963a016a989c3d8852e863d1350996f573860a80767c83a1cd3 | https://github.com/notofonts/noto-cjk/tree/main/Serif/SubsetOTF/SC
